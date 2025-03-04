@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="static/script.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header Section -->
+    <div class="header-wrapper">
+        <h1 id="calculator-name">Calculator Name</h1>
+        <p id="calculator-description">Calculator description</p>
+    </div>
+
+    <hr>
+
+    <!-- Form and Chart Section -->
+    <div class="form-chart-wrapper">
+
+        <!-- Form Section -->
+        <div class="form-container">
+            <div id="form-container"></div>
+            <div class="result-container">
+                <div class="result" id="result">Interest: $0.00</div>
+            </div>
+        </div>
+
+        <!-- Divider (Hidden on Mobile) -->
+        <div class="divider"></div>
+
+        <!-- Chart Section -->
+        <div class="chart-container">
+            <div id="charts-container"></div>
+        </div>
+
+    </div>
+
+    <!-- View More Button for Charts -->
+    <div class="view-more-wrapper">
+        <button id="view-more-btn" class="view-more-btn">▼ View Less Chart</button>
+    </div>
+
+    <!-- Extra Chart Section (Initially Hidden) -->
+    <div class="chart-container" id="charts-container-2"></div>
+
+    <hr />
+
+    <!-- Calculation Table -->
+    <div id="calculation-table-container" class="table-container"></div>
+
+    <hr />
+
+    <!-- Extra Form Section -->
+    <div class="form-container-2" id="form-container-2"></div>
+
+    <hr />
+
+    <!-- Examples Section -->
+    <div id="examples-container"></div>
+
+</div>
+
+</body>
+</html>
