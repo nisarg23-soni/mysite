@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interest Calculator</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="static/styles.css">
+  <script src="static/script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header-wrapper">
+      <h1 id="calculator-name">Calculator Name</h1>
+    </div>
+    <div class="header-wrapper">
+      <p id="calculator-description">Calculator description</p>
+    </div>
+
+    <hr>
+
+    <div class="form-chart-wrapper">
+      <div></div>
+      <div class="form-container">
+        <div id="form-container"></div>
+        <div class="result-container">
+          <div class="result" id="result">Interest: $0.00</div>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <div id="charts-container"></div>
+      </div>
+      <div></div>
+    </div>
+
+    <div class="view-more-wrapper">
+      <button id="view-more-btn" class="view-more-btn">▼ View Less Chart</button>
+      <div class="form-chart-wrapper">
+        <div class="chart-container">
+          <div id="charts-container-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <div id="calculation-table-container" class="table-container"></div>
+    <hr />
+    <div class="form-chart-wrapper">
+      <div class="form-container-2" id="form-container-2"></div>
+    </div>
+    <hr />
+    <div id="examples-container"></div>
+  </div>
+</body>
+</html>

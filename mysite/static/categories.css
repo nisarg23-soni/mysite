@@ -1,0 +1,122 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+header p {
+    margin: 10px 0 0;
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Category Container */
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Category Box */
+.category {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 114, 255, 0.2);
+}
+
+/* Category Header */
+.category h2 {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.category h2 span {
+    font-size: 1.8rem;
+    color: #0072ff;
+}
+
+/* Category List */
+.category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category ul li {
+    margin: 12px 0;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.category ul li:hover {
+    background: rgba(0, 114, 255, 0.1);
+}
+
+/* Links */
+.category ul li a {
+    text-decoration: none;
+    color: #0072ff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.category ul li a:hover {
+    color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1.1rem;
+    }
+
+    .category-container {
+        padding: 20px;
+    }
+}

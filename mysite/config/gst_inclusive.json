@@ -1,0 +1,82 @@
+{
+    "name": "Inclusive GST Calculator",
+    "description": "The Inclusive GST Calculator determines the GST amount included in the total price of a product or service. This is useful for finding out the tax component when the price provided is inclusive of GST.",
+    "variables": [
+        {
+            "name": "PriceInclusive",
+            "label": "Price (Inclusive of GST) (₹)",
+            "type": "number",
+            "default": 1180,
+            "long_definition": "The price of the product or service, which includes the GST component. This is the final amount paid by the consumer."
+        },
+        {
+            "name": "GSTRate",
+            "label": "GST Rate (%)",
+            "type": "number",
+            "default": 18,
+            "long_definition": "The GST rate applied to the product or service. It is expressed as a percentage of the base price before tax."
+        }
+    ],
+    "results" : ["formula" , "Price"],
+    "selected_keys" : ["formula" , "Price"],
+    "chart_keys" : ["formula", "Price"],
+    "formula" : "P - (P / (1 + G / 100))",
+    "Price" : "P - (P - (P / (1 + G / 100)))",
+    "GST" : "P - (P / (1 + G / 100))",
+    "not_year_colume" : true,
+    "general_formula" : true,
+    "charts": {
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": ["Base Price", "GST Amount"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": []
+        },
+        "line": {
+            "enabled": false,
+            "labels": []
+        }
+    },
+    "table_headings" : [
+        "Pre-GST amount",
+        "GST"
+        ],
+    "examples": [
+        {
+            "title": "Example: Calculate GST for a product",
+            "description": "Compute the GST amount included in a product priced at ₹1,180 with a GST rate of 18%.",
+            "steps": [
+                "Step 1: Identify the price inclusive of GST (₹1,180) and the GST rate (18%).",
+                "Step 2: Use the formula: GST Amount = PriceInclusive - PriceInclusive / (1 + GSTRate / 100).",
+                "Step 3: Substitute the values: GST Amount = 1180 - 1180 / (1 + 18 / 100).",
+                "Step 4: Compute the result: GST Amount = ₹180."
+            ],
+            "calculation": {
+                "PriceInclusive": 1180,
+                "GSTRate": 18,
+                "formula": "1180 - 1180 / (1 + 18 / 100)",
+                "result": 180,
+                "explanation": "The GST amount included in the total price is ₹180."
+            }
+        },
+        {
+            "title": "Story-Based Example: Raj's GST Understanding",
+            "description": "Raj buys a product for ₹1,180, inclusive of GST. The GST rate is 18%. Raj wants to know the GST amount included in this price.",
+            "steps": [
+                "Raj notes the total price (₹1,180) and the GST rate (18%).",
+                "Using the formula, he calculates the GST amount: GST Amount = 1180 - 1180 / (1 + 18 / 100).",
+                "After computation, he finds that the GST amount is ₹180."
+            ],
+            "calculation": {
+                "PriceInclusive": 1180,
+                "GSTRate": 18,
+                "formula": "1180 - 1180 / (1 + 18 / 100)",
+                "result": 180,
+                "explanation": "Raj learns that ₹180 of the total price is the GST component."
+            }
+        }
+    ]
+}

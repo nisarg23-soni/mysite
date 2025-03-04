@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(to right, #0072ff, #00c6ff);
+            color: white;
+            padding: 40px 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+        .categories-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+        .category-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            width: 220px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .category-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        .category-card h3 {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .category-card a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Calculators</h1>
+        <p>Explore our calculators to plan your health, finances, and more!</p>
+    </div>
+    <div class="categories-container">
+        <div class="category-card">
+            <a href="/calculatorcategories"><h3>Financial Calculators</h3></a>
+        </div>
+        <!-- Add more categories as needed -->
+    </div>
+</body>
+</html>

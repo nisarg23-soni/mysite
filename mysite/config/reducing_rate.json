@@ -1,0 +1,98 @@
+{
+    "name": "Reducing Rate EMI Calculator",
+    "description": "The Reducing Rate EMI Calculator computes the monthly EMI for a loan based on a reducing balance method. In this method, interest is charged on the outstanding principal, and the EMI amount remains constant, but the interest portion reduces over time.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Loan Principal Amount (₹)",
+            "type": "number",
+            "default": 100000,
+            "long_definition": "The total loan amount borrowed by the individual. Interest is calculated on the outstanding principal for each period."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Interest Rate (%)",
+            "type": "number",
+            "default": 10,
+            "long_definition": "The annual interest rate charged on the loan principal, applied on a reducing balance basis."
+        },
+        {
+            "name": "Time",
+            "label": "Loan Tenure (Years)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The duration over which the loan is to be repaid in years."
+        }
+    ],
+    "results" : ["Monthly_emi" , "interest" , "Emi_paid" , "total_amount", "Principal"],
+    "selected_keys" : ["Monthly_emi" , "interest" ,  "total_amount"],
+    "chart_keys" : ["interest", "Principal"],
+    "formula": "(P * ((R / 100) / 12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1)",
+    "Monthly_emi": "(P * ((R / 100) / 12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1)",
+    "interest" :"((P * ((R / 100) / 12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1) * T * 12) - P",
+    "total_amount" : "((P * ((R / 100) / 12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1) * T * 12)",
+    "Emi_paid" : "(P * ((R / 100) / 12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1) * 12 * T",
+    "Principal" : "P",
+    "general_formula" : true,
+    "not_year_colume" : false,
+    "table_headings" : [
+        "Total Amount",
+        "Monthly Paid EMI",
+        "Principal",
+        "Year",
+        "Total Interest"
+        ],
+    "charts": {
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": ["Principal", "Total Interest"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": []
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["EMI Over Time"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: Calculate EMI Using Reducing Balance Method",
+            "description": "Compute the EMI for a loan of ₹1,00,000 at an annual interest rate of 10% for a tenure of 5 years using the reducing balance method.",
+            "steps": [
+                "Step 1: Identify the loan principal (₹1,00,000), annual interest rate (10%), and loan tenure (5 years).",
+                "Step 2: Convert the annual interest rate to a monthly rate: r = 10 / 100 / 12 = 0.008333.",
+                "Step 3: Calculate the total number of EMIs: n = 5 * 12 = 60.",
+                "Step 4: Use the formula to compute the EMI: EMI = [100000 * 0.008333 * (1 + 0.008333)^(60)] / [(1 + 0.008333)^60 - 1].",
+                "Step 5: Substitute the values and compute the EMI."
+            ],
+            "calculation": {
+                "Principal": 100000,
+                "AnnualRate": 10,
+                "TenureYears": 5,
+                "formula": "(100000 * ((10 / 100) / 12) * (1 + ((10 / 100) / 12)) ** (5 * 12)) / ((1 + ((10 / 100) / 12)) ** (5 * 12) - 1)",
+                "result": 2124.70,
+                "explanation": "The monthly EMI for the loan using the reducing balance method is ₹2,124.70."
+            }
+        },
+        {
+            "title": "Story-Based Example: Raj's Reducing Balance Loan",
+            "description": "Raj takes a loan of ₹1,00,000 for a car purchase. The bank offers a reducing balance interest rate of 10% annually, and Raj plans to repay it over 5 years. Raj wants to calculate the EMI for the loan.",
+            "steps": [
+                "Raj identifies the loan principal (₹1,00,000), annual rate (10%), and tenure (5 years).",
+                "Using the reducing balance formula, he computes the EMI.",
+                "He finds that the EMI is ₹2,124.70 per month."
+            ],
+            "calculation": {
+                "Principal": 100000,
+                "AnnualRate": 10,
+                "TenureYears": 5,
+                "formula": "(100000 * ((10 / 100) / 12) * (1 + ((10 / 100) / 12)) ** (5 * 12)) / ((1 + ((10 / 100) / 12)) ** (5 * 12) - 1)",
+                "result": 2124.70,
+                "explanation": "Raj calculates that his EMI will be ₹2,124.70 every month for 5 years."
+            }
+        }
+    ]
+}

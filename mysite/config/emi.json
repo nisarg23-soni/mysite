@@ -1,0 +1,97 @@
+{
+    "name": "EMI Total Interest Calculator",
+    "description": "The EMI Total Interest Calculator helps users compute the total interest paid over a loan tenure based on the principal amount, annual interest rate, and loan duration in years.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Loan Amount (₹)",
+            "type": "number",
+            "default": 500000,
+            "long_definition": "The Principal is the total loan amount borrowed by the user. It forms the base for EMI and interest calculations."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Interest Rate (%)",
+            "type": "number",
+            "default": 8.5,
+            "long_definition": "The Annual Interest Rate is the percentage of interest charged on the principal amount per year."
+        },
+        {
+            "name": "Time",
+            "label": "Loan Tenure (Years)",
+            "type": "number",
+            "default": 10,
+            "long_definition": "The Loan Tenure is the duration over which the loan is repaid, usually measured in years."
+        }
+    ],
+    "formula": "(P * ((R /100)/12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1)",
+    "results" : ["monthly_emi" , "interest" ,  "total_amount" , "Principal"],
+    "selected_keys" : ["monthly_emi" , "Principal"],
+    "chart_keys" : ["Principal" , "total_amount"],
+    "monthly_emi" :"(P * ((R /100)/12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1)",
+    "interest" : "(P * (R/100)) /12",
+    "Emi_paid" : "(P + (P * (R / 100) * T))",
+    "total_amount" : "(P * (R / 100) * T) + P",
+    "Principal" : "P",
+    "remaining_principal" : true,
+    "not_year_colume" : false,
+    "charts": {
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": ["Principal", "Total Interest"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["EMI Over Tenure"]
+        }
+    },
+    "table_headings" : [
+        "Principal paid",
+        "interest charged",
+        "Balance",
+        "Month"
+    ],
+    "examples": [
+        {
+            "title": "Example: Home Loan for 10 Years",
+            "description": "Calculate the total interest paid for a home loan of ₹500,000 at an annual interest rate of 8.5% for a tenure of 10 years.",
+            "steps": [
+                "Step 1: Identify the principal amount (₹500,000), annual interest rate (8.5%), and tenure (10 years).",
+                "Step 2: Convert the annual interest rate to a monthly rate: r = (8.5 / 100) / 12.",
+                "Step 3: Apply the EMI formula to compute the monthly payment.",
+                "Step 4: Compute the total interest paid over the tenure."
+            ],
+            "calculation": {
+                "P": 500000,
+                "R": 8.5,
+                "T": 10,
+                "formula": "((500000 * (8.5 / 100 / 12) * (1 + (8.5 / 100 / 12)) ^ (10 * 12)) / ((1 + (8.5 / 100 / 12)) ^ (10 * 12) - 1) * (10 * 12)) - 500000",
+                "result": 252089.64,
+                "explanation": "For a ₹500,000 loan at 8.5% annual interest over 10 years, the total interest paid will be ₹252,089.64."
+            }
+        },
+        {
+            "title": "Story-Based Explanation: Rahul's Car Loan",
+            "description": "Rahul takes a car loan of ₹800,000 at 9% annual interest for a tenure of 5 years. Here’s how much interest he pays over the loan period.",
+            "steps": [
+                "Rahul borrows ₹800,000 to buy a new car.",
+                "The bank charges him an annual interest rate of 9%.",
+                "Using the EMI formula, his monthly EMI is calculated.",
+                "By the end of 5 years, Rahul pays ₹194,340 as total interest."
+            ],
+            "calculation": {
+                "P": 800000,
+                "R": 9,
+                "T": 5,
+                "formula": "((800000 * (9 / 100 / 12) * (1 + (9 / 100 / 12)) ^ (5 * 12)) / ((1 + (9 / 100 / 12)) ^ (5 * 12) - 1) * (5 * 12)) - 800000",
+                "result": 194340.12,
+                "explanation": "For a ₹800,000 car loan at 9% annual interest over 5 years, the total interest paid will be ₹194,340.12."
+            }
+        }
+    ]
+}

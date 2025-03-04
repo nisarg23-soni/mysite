@@ -1,0 +1,98 @@
+{
+    "name": "Car Loan EMI Calculator",
+    "description": "The Car Loan EMI Calculator computes the Equated Monthly Installment (EMI) for a car loan based on the principal amount, annual interest rate, and loan tenure. The EMI is the fixed monthly payment you make to repay the loan over its tenure, which includes both the interest and a portion of the principal.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Principal Loan Amount (₹)",
+            "type": "number",
+            "default": 800000,
+            "long_definition": "The Principal is the total loan amount borrowed by the individual to purchase the car. It is the base amount on which the interest is calculated."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Interest Rate (%)",
+            "type": "number",
+            "default": 9.5,
+            "long_definition": "The Annual Interest Rate is the percentage of interest charged on the loan amount per year by the lender."
+        },
+        {
+            "name": "Time",
+            "label": "Loan Tenure (Years)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The Loan Tenure is the duration (in years) for which the car loan is taken and during which the borrower repays the loan amount through EMIs."
+        }
+    ],
+    "formula": "(P * ((R /100)/12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1)",
+    "results" : ["monthly_emi" , "interest" ,  "total_amount" , "Principal"],
+    "selected_keys" : ["monthly_emi" , "Principal"],
+    "chart_keys" : ["Principal" , "total_amount"],
+    "monthly_emi" :"(P * ((R /100)/12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1)",
+    "interest" : "(P * (R/100)) /12",
+    "Emi_paid" : "(P + (P * (R / 100) * T))",
+    "total_amount" : "(P * (R / 100) * T) + P",
+    "Principal" : "P",
+    "remaining_principal" : true,
+    "not_year_colume" : false,
+    "charts": {
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": ["Principal", "Total Interest"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["EMI Over Tenure"]
+        }
+    },
+    "table_headings" : [
+        "Principal paid",
+        "interest charged",
+        "Balance",
+        "Month"
+    ],
+
+    "examples": [
+        {
+            "title": "Example: Calculate EMI for a Car Loan",
+            "description": "Compute the EMI for an ₹8,00,000 car loan at an annual interest rate of 9.5% for a tenure of 5 years.",
+            "steps": [
+                "Step 1: Identify the loan principal (₹8,00,000), annual interest rate (9.5%), and loan tenure (5 years).",
+                "Step 2: Convert the annual interest rate into a monthly rate: r = 9.5 / 100 / 12.",
+                "Step 3: Calculate the total number of EMIs: n = 5 * 12.",
+                "Step 4: Use the formula: EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1].",
+                "Step 5: Substitute the values and compute the EMI."
+            ],
+            "calculation": {
+                "Principal": 800000,
+                "Annual Rate": 9.5,
+                "Tenure": 5,
+                "formula": "[800000 * (9.5 / 100 / 12) * (1 + (9.5 / 100 / 12))^(5 * 12)] / [(1 + (9.5 / 100 / 12))^(5 * 12) - 1]",
+                "result": 16753.45,
+                "explanation": "The monthly EMI for the car loan is ₹16,753.45, which includes both the interest and a portion of the principal."
+            }
+        },
+        {
+            "title": "Story-Based Example: Priya's Car Loan Decision",
+            "description": "Priya plans to purchase her dream car and needs a car loan of ₹8,00,000. The bank offers her a 5-year loan tenure at an annual interest rate of 9.5%. Priya wants to calculate the EMI she would need to pay every month.",
+            "steps": [
+                "Priya calculates the EMI using the formula provided by the bank.",
+                "Using a principal of ₹8,00,000, an annual rate of 9.5%, and a tenure of 5 years, she computes the monthly EMI.",
+                "She finds that the EMI is ₹16,753.45. This helps Priya plan her monthly budget accordingly."
+            ],
+            "calculation": {
+                "Principal": 800000,
+                "Annual Rate": 9.5,
+                "Tenure": 5,
+                "formula": "[800000 * (9.5 / 100 / 12) * (1 + (9.5 / 100 / 12))^(5 * 12)] / [(1 + (9.5 / 100 / 12))^(5 * 12) - 1]",
+                "result": 16753.45,
+                "explanation": "Priya learns that she needs to pay ₹16,753.45 every month for 5 years to repay her loan."
+            }
+        }
+    ]
+}

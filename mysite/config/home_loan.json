@@ -1,0 +1,97 @@
+{
+    "name": "Home Loan EMI Calculator",
+    "description": "The Home Loan EMI Calculator computes the Equated Monthly Installment (EMI) for a home loan based on the principal amount, annual interest rate, and loan tenure. The EMI is the fixed monthly payment you make to repay the loan over its tenure, which includes both the interest and a portion of the principal.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Principal Loan Amount (₹)",
+            "type": "number",
+            "default": 1000000,
+            "long_definition": "The Principal is the total loan amount borrowed by the individual. It is the base amount on which the interest is calculated."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Interest Rate (%)",
+            "type": "number",
+            "default": 6.5,
+            "long_definition": "The Annual Interest Rate is the percentage of interest charged on the loan amount per year by the lender."
+        },
+        {
+            "name": "Time",
+            "label": "Loan Tenure (Years)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The Loan Tenure is the duration (in years) for which the loan is taken and during which the borrower repays the loan amount through EMIs."
+        }
+    ],
+    "formula": "(P * ((R /100)/12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1)",
+    "results" : ["monthly_emi" , "interest" ,  "total_amount" , "Principal"],
+    "selected_keys" : ["monthly_emi" , "Principal"],
+    "chart_keys" : ["Principal" , "total_amount"],
+    "monthly_emi" :"(P * ((R /100)/12) * (1 + ((R / 100) / 12)) ** (T * 12)) / ((1 + ((R / 100) / 12)) ** (T * 12) - 1)",
+    "interest" : "(P * (R/100)) /12",
+    "Emi_paid" : "(P + (P * (R / 100) * T))",
+    "total_amount" : "(P * (R / 100) * T) + P",
+    "Principal" : "P",
+    "remaining_principal" : true,
+    "not_year_colume" : false,
+    "charts": {
+        "doughnut": {
+            "enabled": true,
+            "default" : true,
+            "labels": ["Principal", "Total Interest"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["EMI Over Tenure"]
+        }
+    },
+    "table_headings": [
+        "Principal paid",
+        "Interest charged",
+        "Balance",
+        "Month"
+        ],
+    "examples": [
+        {
+            "title": "Example: Calculate EMI for a Home Loan",
+            "description": "Compute the EMI for a ₹50,00,000 loan at an annual interest rate of 7.5% for a tenure of 20 years.",
+            "steps": [
+                "Step 1: Identify the loan principal (₹50,00,000), annual interest rate (7.5%), and loan tenure (20 years).",
+                "Step 2: Convert the annual interest rate into a monthly rate: r = 7.5 / 100 / 12.",
+                "Step 3: Calculate the total number of EMIs: n = 20 * 12.",
+                "Step 4: Use the formula: EMI = [P * r * (1 + r)^n] / [(1 + r)^n - 1].",
+                "Step 5: Substitute the values and compute the EMI."
+            ],
+            "calculation": {
+                "Principal": 5000000,
+                "Annual Rate": 7.5,
+                "Tenure": 20,
+                "formula": "[5000000 * (7.5 / 100 / 12) * (1 + (7.5 / 100 / 12))^(20 * 12)] / [(1 + (7.5 / 100 / 12))^(20 * 12) - 1]",
+                "result": 40037.86,
+                "explanation": "The monthly EMI for the loan is ₹40,037.86, which includes both the interest and a portion of the principal."
+            }
+        },
+        {
+            "title": "Story-Based Example: Raj's Home Loan Journey",
+            "description": "Raj plans to buy a house and needs a home loan of ₹50,00,000. The bank offers him a 20-year loan tenure at an annual interest rate of 7.5%. Raj wants to calculate the EMI he would need to pay every month.",
+            "steps": [
+                "Raj calculates the EMI using the formula provided by the bank.",
+                "Using a principal of ₹50,00,000, an annual rate of 7.5%, and a tenure of 20 years, he computes the monthly EMI.",
+                "He finds that the EMI is ₹40,037.86. This helps Raj plan his monthly budget accordingly."
+            ],
+            "calculation": {
+                "Principal": 5000000,
+                "Annual Rate": 7.5,
+                "Tenure": 20,
+                "formula": "[5000000 * (7.5 / 100 / 12) * (1 + (7.5 / 100 / 12))^(20 * 12)] / [(1 + (7.5 / 100 / 12))^(20 * 12) - 1]",
+                "result": 40037.86,
+                "explanation": "Raj learns that he needs to pay ₹40,037.86 every month for 20 years to repay his loan."
+            }
+        }
+    ]
+}

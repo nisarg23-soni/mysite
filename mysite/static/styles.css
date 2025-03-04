@@ -1,0 +1,235 @@
+body {
+    font-family: Arial, serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+
+/* Wrapper for h1 and vertical divider */
+.header-wrapper {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
+    gap: 10px; /* Space between h1 and divider */
+    margin-bottom: 30px;
+}
+
+#calculator-description {
+    font-family: "Inter" , serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+
+h1 {
+    text-align: center;
+    flex: 1; /* Allows it to grow and center properly */
+    margin: 0 auto; /* Ensure it aligns within its container */
+}
+
+/* Vertical divider near h1 */
+.header-divider {
+    width: 2px;
+    background-color:#000000;
+    height: 96px; /* Adjust the height as needed */
+}
+
+hr {
+    width: 100vh auto;
+    background-color: #000000;
+    margin: 40px;
+}
+
+
+/* Flex layout for form and chart containers */
+.form-chart-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px; /* Adds spacing between form, divider, and chart */
+    margin-top: 40px;
+}
+
+/* Form container */
+.form-container {
+    flex: 1; /* Allows flexible resizing */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Divider between form and chart */
+.divider {
+    width: 2px;
+    background-color: #000000; /* Black divider line */
+    height: 45vh; /* Maximum height */
+}
+
+
+/* Chart container */
+.chart-container {
+    flex: 1; /* Allows flexible resizing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Inputs and form styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    width: 250px;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Result section */
+.result {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    text-align: left;
+}
+.result-container {
+    background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #ccc; /* Optional: Add a subtle border */
+    padding: 15px; /* Add padding for spacing inside the container */
+    border-radius: 8px; /* Round the corners */
+    font-size: 18px; /* Adjust font size */
+    font-weight: bold; /* Highlight the result text */
+    color: #333; /* Text color */
+    text-align: left; /* Align text to the left */
+    width: 300px; /* Full width of the container */
+    box-sizing: border-box; /* Include padding in width */
+    margin-top: 15px; /* Add spacing above the container */
+}
+
+
+/* Chart area */
+#charts-container {
+    width: 100%;
+    margin-top: 30px;
+}
+
+canvas {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Legend for charts */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.legend-item .circle {
+    width: 10px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.circle-principal {
+    background-color: #007bff; /* Blue for Principal */
+}
+
+.circle-interest {
+    background-color: #ffc107; /* Yellow for Interest */
+}
+
+/* Examples section */
+#examples-container {
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* View More Button */
+.view-more-wrapper {
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.view-more-btn {
+    background-color: #ccc;
+    color: #000000;
+    border: none;
+    padding: 4px 8px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s #ccc;
+}
+
+.view-more-btn:hover {
+    background-color: #ccc;
+}
+
+.view-more-btn:active {
+    transform: scale(0.98);
+}
+
+/* Expanded state for charts */
+#charts-container-2.expanded {
+    display: none;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease; /* Smooth transition */
+
+}
+
+@media (min-width: 768px) {
+    .container{
+        width: 60%;
+    }
+
+    input {
+    width: 300px;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    }
+
+}
+
+
+

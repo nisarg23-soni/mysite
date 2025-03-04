@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Categories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gray-900 text-white p-6 text-center">
+        <h1 class="text-3xl font-bold">Interest Calculators</h1>
+        <p class="text-lg mt-2">Use our financial calculators to manage your investments and loans.</p>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for calculator in calculators %}
+            <li id="calculator-{{ loop.index }}" class="bg-white p-6 rounded-lg shadow-lg text-center">
+                <!-- Calculator Title -->
+                <h2 class="text-xl font-semibold">{{ calculator.replace("_", " ") | upper }}</h2>
+                <p class="mt-2 text-gray-600">Calculate {{ calculator.replace("_", " ") }}</p>
+
+                <!-- Button -->
+                <a href="/calculators?calculator={{ calculator }}&index={{ loop.index }}" 
+                   class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">
+                   Use Calculator
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

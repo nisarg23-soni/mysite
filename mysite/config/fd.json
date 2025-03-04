@@ -1,0 +1,107 @@
+{
+    "name": "Fixed Deposit (FD) Calculator",
+    "description": "The Fixed Deposit Calculator helps you compute the maturity amount of a fixed deposit based on the principal amount, annual interest rate, time period (in years), and compounding frequency. Fixed deposits are financial instruments where you invest a fixed amount for a specific tenure, earning interest compounded at regular intervals. This calculator supports real-time calculations and visualizes the growth of your investment over time.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Principal Amount (₹)",
+            "type": "number",
+            "default": 10000,
+            "long_definition": "The Principal Amount is the initial sum of money invested in the fixed deposit. This serves as the base amount on which interest is calculated."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Interest Rate (%)",
+            "type": "number",
+            "default": 6.5,
+            "long_definition": "The Annual Interest Rate refers to the percentage rate at which interest is earned annually on the principal amount. It is compounded at specified intervals."
+        },
+        {
+            "name": "Time",
+            "label": "Time Period (Years)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The Time Period is the duration for which the fixed deposit is held, typically measured in years. Interest accumulates over this time."
+        },
+        {
+            "name": "Compounding Frequency",
+            "label": "Compounding Frequency per Year",
+            "type": "number",
+            "default": 4,
+            "long_definition": "The Compounding Frequency refers to the number of times the interest is calculated and added to the principal in a year. Common frequencies include yearly, quarterly, or monthly."
+        }
+    ],
+    "results" : ["est_return" , "total_amount", "Principal"],
+    "formula": "P * (1 + (R / 100) / C) ** (C * T)",
+    "selected_keys" : ["est_return" , "Principal" ,  "total_amount"],
+    "chart_keys" : ["est_return", "Principal"],
+    "est_return" :"P * (1 + (R / 100) / C) ** (C * T) - P",
+    "total_amount" : "(P * (1 + (R / 100) / C) ** (C * T))",
+    "Principal" : "P",
+    "general_formula" : true,
+    "not_year_colume" : false,
+    "table_headings" : [
+        "Principal",
+        "Year",
+        "Total returns",
+        "Total amount"
+        ],
+    "charts": {
+        "pie": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": ["Principal", "Interest"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["Investment Growth"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: FD Calculation for ₹10,000 at 6.5% Annual Interest",
+            "description": "Let's calculate the maturity amount for a principal of ₹10,000, at an annual interest rate of 6.5%, for 5 years with quarterly compounding.",
+            "steps": [
+                "Step 1: Identify the principal amount (₹10,000), annual rate (6.5%), time period (5 years), and compounding frequency (4 times per year).",
+                "Step 2: Use the compound interest formula: M = P * (1 + (R / 100) / n) ** (n * T).",
+                "Step 3: Substitute the values into the formula.",
+                "Step 4: Calculate the maturity amount."
+            ],
+            "calculation": {
+                "P": 10000,
+                "R": 6.5,
+                "T": 5,
+                "n": 4,
+                "formula": "10000 * (1 + (6.5 / 100) / 4) ** (4 * 5)",
+                "result": 13814.07,
+                "explanation": "The maturity amount after 5 years is ₹13,814.07, which includes ₹3,814.07 as interest earned."
+            }
+        },
+        {
+            "title": "Story-Based Explanation: Planning a Future with FD",
+            "description": "Raj, a young professional, wants to invest ₹10,000 in a fixed deposit for 5 years to save for his future. He chooses a bank offering 6.5% annual interest, compounded quarterly. Here's how his investment grows over time.",
+            "steps": [
+                "Raj deposits ₹10,000 into a fixed deposit with his bank, opting for quarterly compounding.",
+                "Every quarter, the bank calculates interest on Raj's deposit and adds it to his account balance.",
+                "Over 5 years, the compounded interest helps his investment grow significantly. By the end of the term, Raj receives both his initial investment and the interest earned."
+            ],
+            "calculation": {
+                "P": 10000,
+                "R": 6.5,
+                "T": 5,
+                "n": 4,
+                "formula": "10000 * (1 + (6.5 / 100) / 4) ** (4 * 5)",
+                "result": 13814.07,
+                "explanation": "Raj's investment grows to ₹13,814.07 after 5 years, including ₹3,814.07 as interest earned."
+            }
+        }
+    ]
+}

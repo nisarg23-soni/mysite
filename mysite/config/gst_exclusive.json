@@ -1,0 +1,84 @@
+{
+    "name": "Exclusive GST Calculator",
+    "description": "The Exclusive GST Calculator computes the GST amount for a given product's price exclusive of GST and the applicable GST rate. This helps determine the additional tax to be paid on the product.",
+    "variables": [
+        {
+            "name": "PriceExclusive",
+            "label": "Price (Exclusive of GST) (₹)",
+            "type": "number",
+            "default": 1000,
+            "long_definition": "The price of the product or service before including the GST. This is the base price upon which the GST is calculated."
+        },
+        {
+            "name": "GSTRate",
+            "label": "GST Rate (%)",
+            "type": "number",
+            "default": 18,
+            "long_definition": "The GST rate applicable to the product or service. It is expressed as a percentage of the base price."
+        }
+    ],
+    "formula": "P * G / 100",
+    "results" : ["GST" , "Price", "Total_price"],
+    "selected_keys" : ["GST" , "Price"],
+    "chart_keys" : ["GST", "Price"],
+    "GST": "P * G / 100",
+    "Price" : "P + (P * G / 100)",
+    "Total_price" : "(P + (P * G / 100)) + (P * G / 100)",
+    "not_year_colume" : true,
+    "general_formula" : true,
+    "charts": {
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": ["Base Price", "GST Amount"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": []
+        },
+        "line": {
+            "enabled": false,
+            "labels": []
+        }
+    },
+    "table_headings": [
+        "Price",
+        "Post Gst Amount",
+        "Total GST"
+    ],
+    "examples": [
+        {
+            "title": "Example: Calculate GST for a product",
+            "description": "Compute the GST amount for a product with a base price of ₹1,000 and a GST rate of 18%.",
+            "steps": [
+                "Step 1: Identify the base price (₹1,000) and the GST rate (18%).",
+                "Step 2: Use the formula: GST Amount = PriceExclusive * GSTRate / 100.",
+                "Step 3: Substitute the values: GST Amount = 1000 * 18 / 100.",
+                "Step 4: Compute the result: GST Amount = ₹180."
+            ],
+            "calculation": {
+                "PriceExclusive": 1000,
+                "GSTRate": 18,
+                "formula": "1000 * 18 / 100",
+                "result": 180,
+                "explanation": "The GST amount for the product is ₹180."
+            }
+        },
+        {
+            "title": "Story-Based Example: Rohan's GST Calculation",
+            "description": "Rohan owns a shop and sells a product for ₹1,000 (exclusive of GST). The applicable GST rate is 18%. He wants to calculate the GST amount he needs to add to the price.",
+            "steps": [
+                "Rohan identifies the base price of the product (₹1,000) and the GST rate (18%).",
+                "Using the formula, he computes: GST Amount = 1000 * 18 / 100 = ₹180.",
+                "Rohan determines that the GST amount is ₹180, which he needs to add to the base price."
+            ],
+            "calculation": {
+                "PriceExclusive": 1000,
+                "GSTRate": 18,
+                "formula": "1000 * 18 / 100",
+                "result": 180,
+                "explanation": "Rohan finds that the GST amount is ₹180, which needs to be added to the base price."
+            }
+        }
+    ]
+}

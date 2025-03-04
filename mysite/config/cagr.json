@@ -1,0 +1,92 @@
+{
+    "name": "CAGR Calculator",
+    "description": "The CAGR Calculator computes the Compound Annual Growth Rate, which represents the annualized growth rate of an investment over a specified period of time.",
+    "variables": [
+        {
+            "name": "StartValue",
+            "label": "Initial Value of Investment (₹)",
+            "type": "number",
+            "default": 100000,
+            "long_definition": "The starting or initial value of the investment at the beginning of the investment period."
+        },
+        {
+            "name": "EndValue",
+            "label": "Final Value of Investment (₹)",
+            "type": "number",
+            "default": 200000,
+            "long_definition": "The final value of the investment at the end of the investment period."
+        },
+        {
+            "name": "Time",
+            "label": "Number of Years",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The total number of years over which the investment has grown."
+        }
+    ],
+    "results": ["CAGR", "start_value" , "end_value"],
+    "selected_keys": ["CAGR"],
+    "chart_keys": ["start_value" , "end_value" ],
+    "start_value" : "S",
+    "end_value" : "E",
+    "formula": "(((E / S) ** (1 / T))-1) * 100",
+    "CAGR": "(((E / S) ** (1 / T))-1) * 100",
+    "general_formula" : true,
+    "not_year_colume": false,
+    "charts": {
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": []
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["CAGR"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["Investment Growth Over Time"]
+        }
+    },
+    "table_headings": [
+        "CAGR (%)",
+        "Years"
+    ],
+    "examples": [
+        {
+            "title": "Example: Calculate CAGR for an Investment",
+            "description": "Compute the CAGR for an investment that grows from ₹1,00,000 to ₹2,00,000 over 5 years.",
+            "steps": [
+                "Step 1: Identify the start value (₹1,00,000), end value (₹2,00,000), and number of years (5).",
+                "Step 2: Use the CAGR formula: CAGR = ((End Value / Start Value) ^ (1 / Years)) - 1.",
+                "Step 3: Compute CAGR: CAGR = ((200000 / 100000) ^ (1 / 5)) - 1.",
+                "Step 4: Result: CAGR = 14.87%."
+            ],
+            "calculation": {
+                "StartValue": 100000,
+                "EndValue": 200000,
+                "Years": 5,
+                "formula": "((200000 / 100000) ** (1 / 5)) - 1",
+                "result": 0.1487,
+                "explanation": "The Compound Annual Growth Rate (CAGR) for the investment is 14.87% per year."
+            }
+        },
+        {
+            "title": "Story-Based Example: Priya's Investment Journey",
+            "description": "Priya invests ₹1,50,000 in a mutual fund, which grows to ₹3,00,000 in 10 years. She wants to find the CAGR to evaluate the investment's performance.",
+            "steps": [
+                "Priya inputs the start value (₹1,50,000), end value (₹3,00,000), and number of years (10) into the formula.",
+                "She calculates CAGR: CAGR = ((300000 / 150000) ^ (1 / 10)) - 1.",
+                "The CAGR is 7.18%, indicating an annual growth rate of her investment."
+            ],
+            "calculation": {
+                "StartValue": 150000,
+                "EndValue": 300000,
+                "Years": 10,
+                "formula": "((300000 / 150000) ** (1 / 10)) - 1",
+                "result": 0.0718,
+                "explanation": "Priya's investment grew at an annualized rate of 7.18% over 10 years."
+            }
+        }
+    ]
+}

@@ -1,0 +1,101 @@
+{
+    "name": "Gratuity Calculator",
+    "description": "The Gratuity Calculator computes the gratuity amount based on the last drawn salary and the total years of service.",
+    "variables": [
+        {
+            "name": "Last Drawn Salary",
+            "label": "Last Drawn Salary (Basic + DA) (₹)",
+            "type": "number",
+            "default": 50000,
+            "long_definition": "The last drawn monthly salary, including the basic salary and dearness allowance (DA), as specified by the employee."
+        },
+        {
+            "name": "Time",
+            "label": "Number of Years of Service",
+            "type": "number",
+            "default": 10,
+            "long_definition": "The total number of years the employee has worked in the organization, rounded down to the nearest whole year if not exact."
+        }
+    ],
+ "results" : ["gratuity" , "last_drawn_sal"],
+    "selected_keys" : ["gratuity", "last_drawn_sal"],
+    "chart_keys" : ["gratuity" , "last_drawn_sal"],
+    "formula": "(L * T * 15) / 26",
+    "gratuity" : "(L * T * 15) / 26",
+    "last_drawn_sal" : "L",
+    "not_year_colume" : false,
+    "general_formula" : true,
+    "charts": {
+    "bar": {
+        "enabled": false,
+        "default": false,
+        "title": "Bar Graph",
+        "xAxisTitle": "Number of Years",
+        "yAxisTitle": "Gratuity",
+        "backgroundColor": ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
+        "labels": ["Num" , "Gratuity"]
+    },
+    "line": {
+        "enabled": false,
+        "title": "Line chart",
+        "xAxisLabels": ["Jan", "Feb", "Mar", "Apr"],
+        "yAxisValues": [10, 20, 30, 40],
+        "borderColor": "#36A2EB"
+    },
+    "pie": {
+        "enabled": false,
+        "title": "Pie chart",
+        "labels": ["Gratuity", "Drawn Salary"],
+        "backgroundColor": ["#FF6384", "#36A2EB", "#FFCE56"]
+    },
+    "doughnut": {
+        "enabled": true,
+        "default" : true,
+        "title": "Doughtnut chart",
+        "labels": ["Gratuity", "Drawn Salary"],
+        "backgroundColor": ["#FF6384", "#36A2EB", "#FFCE56"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: Gratuity Calculation",
+            "description": "Compute the gratuity for an employee with a last drawn salary of ₹50,000 and 10 years of service.",
+            "steps": [
+                "Step 1: Identify the last drawn salary (₹50,000) and years of service (10 years).",
+                "Step 2: Use the formula: Gratuity = (Last Drawn Salary × Years of Service × 15) ÷ 26.",
+                "Step 3: Substitute the values: Gratuity = (50,000 × 10 × 15) ÷ 26.",
+                "Step 4: Compute the gratuity: Gratuity = ₹2,88,461.54."
+            ],
+            "calculation": {
+                "Last Drawn Salary": 50000,
+                "Years of Service": 10,
+                "formula": "(50000 * 10 * 15) / 26",
+                "result": 288461.54,
+                "explanation": "The gratuity amount is ₹2,88,461.54."
+            }
+        },
+        {
+            "title": "Story-Based Example: Meera's Retirement",
+            "description": "Meera retires after 15 years of service at her company. Her last drawn salary, including DA, was ₹75,000. She uses the gratuity formula to compute her retirement benefit.",
+            "steps": [
+                "Meera inputs her last drawn salary (₹75,000) and years of service (15 years) into the formula.",
+                "She calculates her gratuity as: Gratuity = (75,000 × 15 × 15) ÷ 26.",
+                "Meera learns her gratuity amount is ₹6,49,038.46."
+            ],
+            "calculation": {
+                "Last Drawn Salary": 75000,
+                "Years of Service": 15,
+                "formula": "(75000 * 15 * 15) / 26",
+                "result": 649038.46,
+                "explanation": "Meera's gratuity is ₹6,49,038.46."
+            }
+        }
+    ],
+    "table_headings": [
+        "Years",
+        "Gratuity (₹)"
+    ],
+    "table_formula" : [
+      "L * T * (R / 100)"
+    ]
+}

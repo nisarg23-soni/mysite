@@ -1,0 +1,105 @@
+{
+    "name": "Mutual Fund Returns Calculator",
+    "description": "The Mutual Funds Lump Sum Investment Calculator helps you calculate the maturity amount of a one-time investment in mutual funds based on the principal amount, expected annual return rate, investment duration, and compounding frequency. This calculator uses the compound interest formula to estimate how much your investment will grow over time. It is ideal for evaluating potential returns on mutual fund investments.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Investment Amount (₹)",
+            "type": "number",
+            "default": 10000,
+            "long_definition": "The Principal is the initial one-time investment amount in mutual funds. It serves as the base amount for calculating the growth of the investment."
+        },
+        {
+            "name": "Rate",
+            "label": "Expected Annual Return Rate (%)",
+            "type": "number",
+            "default": 12,
+            "long_definition": "The Expected Annual Return Rate represents the anticipated yearly growth rate of the mutual fund investment. It is typically expressed as a percentage."
+        },
+        {
+            "name": "Time",
+            "label": "Investment Duration (Years)",
+            "type": "number",
+            "default": 10,
+            "long_definition": "The Investment Duration is the time period (in years) for which the principal amount is invested in mutual funds. This determines the duration of compounding."
+        },
+        {
+            "name": "Compounding Frequency",
+            "label": "Compounding Frequency (n)",
+            "type": "number",
+            "default": 1,
+            "long_definition": "The Compounding Frequency refers to how often returns are calculated and reinvested. For mutual funds, this is often yearly (n=1), but it can vary depending on the investment type."
+        }
+    ],
+    "results" : ["estimatied_returns" , "total_amount", "Principal"],
+    "selected_keys" : ["Principal" ,    "total_amount" , "estimatied_returns"],
+    "chart_keys" : ["estimatied_returns", "Principal"],
+    "estimatied_returns" : "(P * (1 + R * 0.01 / C ) ** (C * T)) - P",
+    "formula": "(P * (1 + R * 0.01 / C ) ** (C * T))",
+    "total_amount" : "(P * (1 + R * 0.01 / C ) ** (C * T))",
+    "general_formula" : true,
+    "Principal" : "P",
+    "not_year_colume" : false,
+       "table_headings": [
+        "Invested amount",
+        "Year",
+        "Interest Gained",
+        "Total Amount"
+    ],
+    "charts": {
+        "doughnut": {
+            "default" : true,
+            "enabled": true,
+            "labels": ["Principal", "Interest"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["Investment Growth Over Time"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: Mutual Fund Growth Estimation",
+            "description": "Calculate the maturity amount for a one-time investment of ₹10,000 in mutual funds with an expected annual return rate of 12% for 10 years and yearly compounding.",
+            "steps": [
+                "Step 1: Identify the investment amount (₹10,000), expected return rate (12%), tenure (10 years), and compounding frequency (1 for yearly).",
+                "Step 2: Use the formula: A = P * (1 + r / n) ^ (n * t).",
+                "Step 3: Substitute the values: A = 10000 * (1 + 0.12 / 1) ^ (1 * 10).",
+                "Step 4: Calculate the future value."
+            ],
+            "calculation": {
+                "P": 10000,
+                "r": 12,
+                "n": 1,
+                "t": 10,
+                "formula": "10000 * (1 + 0.12 / 1) ^ (1 * 10)",
+                "result": 31058.48,
+                "explanation": "The maturity amount after 10 years for an investment of ₹10,000 in mutual funds with an expected annual return of 12% is ₹31,058.48, which includes ₹21,058.48 as interest earned."
+            }
+        },
+        {
+            "title": "Story-Based Explanation: Priya's Investment Plan",
+            "description": "Priya invests ₹10,000 in a mutual fund scheme offering an expected annual return of 12% for 10 years. Here's how her investment grows over time.",
+            "steps": [
+                "Priya invests ₹10,000 as a lump sum in mutual funds. The fund manager anticipates an annual return of 12%.",
+                "In the first year, Priya earns ₹1,200 as returns, bringing her total balance to ₹11,200.",
+                "Over the years, returns are calculated on the growing balance due to compounding, leading to faster growth.",
+                "After 10 years, Priya's total balance reaches ₹31,058.48, demonstrating the wealth-building potential of mutual funds."
+            ],
+            "calculation": {
+                "P": 10000,
+                "r": 12,
+                "n": 1,
+                "t": 10,
+                "formula": "10000 * (1 + 0.12 / 1) ^ (1 * 10)",
+                "result": 31058.48,
+                "explanation": "Priya's investment grows to ₹31,058.48 over 10 years, with ₹21,058.48 as returns earned through compounding."
+            }
+        }
+    ]
+
+}

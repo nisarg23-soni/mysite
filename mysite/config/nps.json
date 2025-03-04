@@ -1,0 +1,112 @@
+{
+   "name": "NPS Calculator",
+    "description": "The NPS Calculator helps individuals estimate the maturity corpus and monthly pension from their National Pension Scheme investments. The calculations are based on periodic contributions, assumed rate of return, and compounding frequency.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Investment Amount (₹)",
+            "type": "number",
+            "default": 100000,
+            "long_definition": "The Principal is the initial amount invested in the Senior Citizen Savings Scheme. This forms the basis for interest calculations."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Interest Rate (%)",
+            "type": "number",
+            "default": 6,
+            "long_definition": "The Annual Interest Rate is the yearly rate at which interest is accrued on the invested amount. It is typically expressed as a percentage."
+        },
+        {
+            "name": "Time",
+            "label": "Time (Years)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The Tenure represents the investment duration in years. SCSS typically has a fixed tenure of 5 years, but it may vary depending on policy terms."
+        },
+        {
+            "name": "Compounding frequency",
+            "label": "Compounding frequency (n)",
+            "type": "number",
+            "default": 1,
+            "long_definition": "The Compounding Frequency variable refers to the number of times interest is calculated and added to the principal within a given period, typically a year."
+
+        }
+    ],
+    "results" : ["maturity_amount"  , "total_interest", "Principal"],
+    "selected_keys" : ["Principal" , "total_interest" ,  "maturity_amount"],
+    "chart_keys" : ["total_interest", "Principal"],
+    "formula": "P * (1 + R / 100 / C) ** (C * T)",
+    "maturity_amount": "P * (1 + R / 100 / C) ** (C * T)",
+    "total_interest": "P * (1 + R / 100 / C) ** (C * T) - P",
+    "Principal" : "P",
+    "not_year_colume" : false,
+    "general_formula" : true,
+    "table_headings": [
+        "Principal",
+        "Year",
+        "Maturity amount",
+        "Total Interest"
+    ],
+
+
+    "charts": {
+        "pie": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "doughnut": {
+            "enabled": true,
+            "default" : true,
+            "labels": ["Principal", "Interest"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: NPS Investment for 30 Years",
+            "description": "Calculate the maturity corpus for an NPS investment of ₹5,000 per month at an annual interest rate of 10% for 30 years.",
+            "steps": [
+                "Step 1: Identify the monthly contribution (₹5,000), annual interest rate (10%), and tenure (30 years).",
+                "Step 2: Convert the annual rate to monthly rate: r = 10 / 100 / 12.",
+                "Step 3: Use the formula to compute the total corpus: Corpus = P * [(1 + r/n)^(nt) - 1] / (r/n) * (1 + r/n).",
+                "Step 4: Compute the total investment: Total Investment = Monthly Contribution * 12 * Tenure.",
+                "Step 5: Calculate the total interest earned as: Total Interest = Corpus - Total Investment."
+            ],
+            "calculation": {
+                "P": 5000,
+                "R": 10,
+                "T": 30,
+                "formula": "5000 * [(1 + (10/100)/12)^(12*30) - 1] / ((10/100)/12) * (1 + (10/100)/12)",
+                "result": 11356299.82,
+                "explanation": "An investment of ₹5,000 per month for 30 years at 10% annual return will result in a total corpus of ₹1.13 Crore."
+            }
+        },
+        {
+            "title": "Story-Based Explanation: Rajesh's Retirement Planning",
+            "description": "Rajesh, a 30-year-old IT professional, invests ₹10,000 per month in NPS for his retirement. Here’s how his investment grows.",
+            "steps": [
+                "Rajesh starts investing ₹10,000 per month in NPS at age 30.",
+                "With an expected annual return of 10%, his investment compounds over time.",
+                "At age 60, Rajesh will have invested ₹36,00,000 (₹10,000 × 12 × 30).",
+                "Due to compounding, his corpus grows to ₹2.27 Crore.",
+                "Rajesh can withdraw a portion of the corpus and use the rest for a regular pension."
+            ],
+            "calculation": {
+                "P": 10000,
+                "R": 10,
+                "T": 30,
+                "formula": "10000 * [(1 + (10/100)/12)^(12*30) - 1] / ((10/100)/12) * (1 + (10/100)/12)",
+                "result": 22712599.64,
+                "explanation": "An investment of ₹10,000 per month for 30 years at 10% annual return will result in a total corpus of ₹2.27 Crore."
+            }
+        }
+    ]
+
+}

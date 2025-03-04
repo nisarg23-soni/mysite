@@ -1,0 +1,103 @@
+{
+    "name": "SCSS Calculator",
+    "description": "The SCSS Calculator helps senior citizens calculate the quarterly interest, total interest earned over the tenure, and maturity amount for their investments in the Senior Citizen Savings Scheme (SCSS). This scheme offers assured returns with quarterly interest payouts over a fixed tenure, typically 5 years.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Investment Amount (₹)",
+            "type": "number",
+            "default": 100000,
+            "long_definition": "The Principal is the initial amount invested in the Senior Citizen Savings Scheme. This forms the basis for interest calculations."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Interest Rate (%)",
+            "type": "number",
+            "default": 8.2,
+            "long_definition": "The Annual Interest Rate is the yearly rate at which interest is accrued on the invested amount. It is typically expressed as a percentage."
+        },
+        {
+            "name": "Time",
+            "label": "Time (Years)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The Tenure represents the investment duration in years. SCSS typically has a fixed tenure of 5 years, but it may vary depending on policy terms."
+        }
+    ],
+    "results" : ["maturity_amount"  , "total_interest", "Principal"],
+    "selected_keys" : ["Principal" , "total_interest" ,  "total_amount"],
+    "chart_keys" : ["total_interest", "Principal"],
+    "formula": "P * (R / 100 / 4)",
+    "quarterly_rate": "(R / 25)",
+    "total_interest" : "P * (R / 100) * T",
+    "maturity_amount" : "P + (P * (R / 100 / 4) * 4 * T)",
+    "Principal" : "P",
+    "not_year_colume" : false,
+    "general_formula" : true,
+    "table_headings": [
+        "Principal",
+        "Year",
+        "Maturity amount",
+        "Total Interest"
+    ],
+
+
+    "charts": {
+        "pie": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "doughnut": {
+            "enabled": true,
+            "default" : true,
+            "labels": ["Principal", "Interest"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: SCSS Investment for 5 Years",
+            "description": "Calculate the quarterly interest, total interest earned, and maturity amount for an SCSS investment of ₹100,000 at an annual interest rate of 8.2% for 5 years.",
+            "steps": [
+                "Step 1: Identify the principal amount (₹100,000), annual interest rate (8.2%), and tenure (5 years).",
+                "Step 2: Calculate the quarterly interest using the formula: Quarterly Interest = P * (R / 100 / 4).",
+                "Step 3: Compute the total interest: Total Interest = Quarterly Interest * 4 * Y.",
+                "Step 4: Calculate the maturity amount: Maturity Amount = Principal + Total Interest."
+            ],
+            "calculation": {
+                "P": 10000,
+                "R": 8.2,
+                "T": 5,
+                "formula": "100000 * (8.2 / 100 / 4)",
+                "result": 141000.00,
+                "explanation": "An investment of ₹100,000 in SCSS at an annual interest rate of 8.2% over 5 years will earn ₹41,000 as interest, resulting in a total maturity amount of ₹141,000."
+            }
+        },
+        {
+            "title": "Story-Based Explanation: Meera's Retirement Investment",
+            "description": "Meera, a retired school teacher, invests ₹2,00,000 in SCSS at an annual interest rate of 8.2% for 5 years. Here’s how her investment grows.",
+            "steps": [
+                "Meera invests ₹2,00,000 in SCSS to earn assured returns.",
+                "Every quarter, she receives ₹4,100 as interest, calculated using the formula: Quarterly Interest = Principal * (Rate / 100 / 4).",
+                "Over the 5-year tenure, Meera earns a total interest of ₹82,000.",
+                "At maturity, Meera receives her initial investment of ₹2,00,000 along with the total interest, resulting in a total maturity amount of ₹2,82,000."
+            ],
+            "calculation": {
+                "P": 10000,
+                "R": 8.2,
+                "T": 5,
+                "formula": "100000 * (8.2 / 100 / 4)",
+                "result": 141000.00,
+                "explanation": "An investment of ₹100,000 in SCSS at an annual interest rate of 8.2% over 5 years will earn ₹41,000 as interest, resulting in a total maturity amount of ₹141,000."
+            }
+        }
+    ]
+
+}

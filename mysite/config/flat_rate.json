@@ -1,0 +1,97 @@
+{
+    "name": "Flat Rate EMI Calculator",
+    "description": "The Flat Rate EMI Calculator computes the monthly EMI based on a flat interest rate. In this method, interest is calculated on the entire loan amount for the duration of the loan, without considering the reducing balance.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Loan Principal Amount (₹)",
+            "type": "number",
+            "default": 100000,
+            "long_definition": "The total loan amount borrowed by the individual. It forms the base amount for interest calculation."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Interest Rate (%)",
+            "type": "number",
+            "default": 10,
+            "long_definition": "The annual flat interest rate charged on the principal loan amount."
+        },
+        {
+            "name": "Time",
+            "label": "Loan Tenure (Years)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The duration of the loan repayment period in years."
+        }
+    ],
+    "results" : ["formula" , "interest_formula" , "Emi_paid" , "total_amount", "Principal"],
+    "selected_keys" : ["formula" , "interest_formula" ,  "total_amount"],
+    "chart_keys" : ["total_amount", "Principal"],
+    "formula": "(P + (P * (R / 100) * T)) / (T * 12)",
+    "interest_formula" :"(P * (R / 100) * T)",
+    "Emi_paid" : "(P + (P * (R / 100) * T))",
+    "total_amount" : "(P * (R / 100) * T) + P",
+    "Principal" : "P",
+    "general_formula" : true,
+    "not_year_colume" : false,
+    "charts": {
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": ["Principal", "Total Interest"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": []
+        },
+        "line": {
+            "enabled": false,
+            "labels": []
+        }
+    },
+    "table_headings" : [
+ "Total Amount",
+        "Principal",
+        "Year",
+        "Monthly Paid EMI",
+        "Total Interest"
+        ],
+    "examples": [
+        {
+            "title": "Example: Calculate Flat Rate EMI for a Loan",
+            "description": "Compute the EMI for a loan of ₹1,00,000 at an annual flat rate of 10% for a tenure of 5 years.",
+            "steps": [
+                "Step 1: Identify the loan principal (₹1,00,000), annual interest rate (10%), and tenure (5 years).",
+                "Step 2: Calculate the total interest: Interest = Principal * Rate * TenureYears / 100 = ₹50,000.",
+                "Step 3: Calculate the total amount: Total Amount = Principal + Interest = ₹1,50,000.",
+                "Step 4: Calculate the EMI: EMI = Total Amount / (TenureYears * 12).",
+                "Step 5: Compute the EMI: EMI = ₹1,50,000 / 60 = ₹2,500."
+            ],
+            "calculation": {
+                "Principal": 100000,
+                "Rate": 10,
+                "TenureYears": 5,
+                "formula": "(100000 + (100000 * (10 / 100) * 5)) / (5 * 12)",
+                "result": 2500,
+                "explanation": "The flat rate EMI for the loan is ₹2,500."
+            }
+        },
+        {
+            "title": "Story-Based Example: Raj's Loan Plan",
+            "description": "Raj takes a loan of ₹1,00,000 for a car. The bank offers a flat rate of 10% per annum, and Raj plans to repay it over 5 years. He wants to calculate the EMI to plan his monthly expenses.",
+            "steps": [
+                "Raj uses the formula for a flat rate EMI to compute his monthly payment.",
+                "The total interest is ₹50,000, and the total amount repayable is ₹1,50,000.",
+                "The EMI is ₹2,500 per month."
+            ],
+            "calculation": {
+                "Principal": 100000,
+                "Rate": 10,
+                "TenureYears": 5,
+                "formula": "(100000 + (100000 * (10 / 100) * 5)) / (5 * 12)",
+                "result": 2500,
+                "explanation": "Raj learns that he needs to pay ₹2,500 every month for 5 years to repay the loan."
+            }
+        }
+    ]
+}

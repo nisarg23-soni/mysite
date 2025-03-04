@@ -1,0 +1,109 @@
+{
+    "name": "Compound Interest Calculator",
+    "description": "The Compound Interest Calculator helps you determine the amount of compound interest accrued over a specified period of time, based on an initial principal investment. Compound interest is the process by which interest earned on an investment or loan is added to the principal amount, so that interest is earned on the interest as well as the original amount. This calculator allows you to input the principal amount, interest rate, and time period (in years) to compute the compound interest and the total accumulated amount at the end of the investment period. It supports real-time calculations and generates charts for better visualization of your investment growth over time.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Principal Amount (₹)",
+            "type": "number",
+            "default": 1000,
+            "long_definition": "The Principal Amount refers to the original sum of money that is either invested, borrowed, or deposited into a financial instrument. It serves as the base value upon which interest is calculated."
+        },
+        {
+            "name": "Rate",
+            "label": "Rate of Interest (%)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The Rate of Interest is the percentage at which interest accrues on the principal amount over a specified period, typically expressed as an annual rate."
+        },
+        {
+            "name": "Time",
+            "label": "Time (Years)",
+            "type": "number",
+            "default": 2,
+            "long_definition": "The Time variable represents the duration, typically measured in years, over which the principal amount is invested, loaned, or borrowed. It determines the period during which interest accumulates."
+        },
+        {
+            "name": "Compounding frequency",
+            "label": "Compounding frequency (n)",
+            "type": "number",
+            "default": 4,
+            "long_definition": "The Compounding Frequency variable refers to the number of times interest is calculated and added to the principal within a given period, typically a year."
+
+        }
+    ],
+    "id" : 1,
+    "results" : ["formula" , "total_interest"  , "total_amount", "Principal"],
+    "selected_keys" : ["Principal" , "total_interest" ,  "total_amount"],
+    "chart_keys" : ["total_interest", "Principal"],
+    "formula": "P * (1 + (R / 100) / C) ** (C * T) - P",
+    "total_interest": "P * (1 + (R / 100) / C) ** (C * T) - P",
+    "total_amount" : "P * (1 + (R / 100) / C) ** (C * T)",
+    "Principal" : "P",
+    "not_year_colume" : false,
+    "general_formula" : true,
+    "table_headings": [
+        "Principal",
+        "Year",
+        "Compound Interest",
+        "Total Amount"
+    ],
+    "charts": {
+        "pie": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "doughnut": {
+            "enabled": true,
+            "default" : true,
+            "labels": ["Principal", "Interest"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: Simple Compound Interest Calculation",
+            "description": "Let's calculate the compound interest for a principal amount of $1000, at an annual interest rate of 5% for 2 years, compounded annually.",
+            "steps": [
+                "Step 1: Identify the principal amount (P), rate of interest (R), and time period (T).",
+                "Step 2: Use the formula for compound interest: CI = P * ((1 + R / 100) ** T) - P",
+                "Step 3: Substitute the values into the formula.",
+                "Step 4: Calculate the result."
+            ],
+            "calculation": {
+                "P": 1000,
+                "R": 5,
+                "T": 2,
+                "formula": "1000 * ((1 + 5 / 100) ** 2) - 1000",
+                "result": 102.50,
+                "explanation": "The compound interest after 2 years is ₹102.50, so the total amount becomes ₹1102.50."
+            }
+        },
+        {
+            "title": "Story-Based Explanation: Compounding Your Future",
+            "description": "Imagine you're an investor named Sarah, and you've just deposited $1000 into a savings account that earns compound interest. The bank offers an annual interest rate of 5%, and you plan to keep your money in the account for 2 years. Here's how compound interest works for you over time.",
+            "steps": [
+                "Sarah is excited to invest her ₹1000 in a high-yield savings account. The bank offers a 5% annual interest rate, compounded yearly.",
+                "After one year, Sarah receives her first interest payment. The interest for the first year is 5% of $1000, which equals $50. The total amount in her account now becomes ₹1050.",
+                "At the start of the second year, Sarah doesn't just earn interest on her original ₹1000. Instead, she earns interest on the total amount in her account, which is now ₹1050. This means she gets interest on the $50 interest she earned in the first year.",
+                "At the end of the second year, Sarah earns 5% on ₹1050, which is ₹52.50. So, her total balance after 2 years is ₹1102.50, including both her original principal and the interest earned on that principal (and the interest itself)."
+            ],
+            "calculation": {
+                "P": 1000,
+                "R": 5,
+                "T": 2,
+                "formula": "1000 * ((1 + 5 / 100) ** 2) - 1000",
+                "result": 102.50,
+                "explanation": "The compound interest after 2 years is ₹102.50, so the total amount becomes ₹1102.50. Sarah's investment has grown not just from the interest on her original ₹1000, but also from the interest earned on the interest."
+            }
+        }
+    ]
+
+}

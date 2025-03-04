@@ -1,0 +1,100 @@
+{
+    "name": "Cost Increase Calculator Due to Inflation",
+    "description": "The Cost Increase Calculator estimates the increase in cost of an item or service over a specified period due to inflation. It uses the inflation rate and time period to calculate how much the cost will grow in the future, assuming a consistent annual inflation rate. This tool is useful for budgeting and forecasting future expenses.",
+    "variables": [
+        {
+            "name": "Current Cost",
+            "label": "Current Cost (₹)",
+            "type": "number",
+            "default": 100000,
+            "long_definition": "The Current Cost represents the present price of the item or service you wish to calculate the cost increase for."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Inflation Rate (%)",
+            "type": "number",
+            "default": 6,
+            "long_definition": "The Inflation Rate is the annual percentage increase in prices, indicating how much costs are expected to rise each year."
+        },
+        {
+            "name": "Time",
+            "label": "Time Period (Years)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The Time Period represents the duration (in years) over which the inflation rate will be applied to calculate the cost increase."
+        }
+    ],
+    "id" : 1,
+    "results" : ["cost_increase" , "future_cost", "current_Cost"],
+    "selected_keys" : ["current_Cost" , "cost_increase", "future_cost"],
+    "chart_keys" : ["current_Cost" , "cost_increase"],
+    "cost_increase": "C * ((1 + (R / 100)) ** T - 1)",
+    "formula": "C * ((1 + (R / 100)) ** T - 1)",
+    "future_cost": "C * (1 + (R / 100)) ** T",
+    "current_Cost" : "C",
+    "not_year_colume" : false,
+    "general_formula" : true,
+    "table_headings": [
+        "Year",
+        "Cost Increase",
+        "Current cost",
+        "Future cost"
+    ],
+    "charts": {
+        "pie": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "doughnut": {
+            "enabled": true,
+            "default" : true,
+            "labels": ["Principal", "Interest"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: Cost Increase Over 5 Years",
+            "description": "Calculate the increase in cost for an item currently priced at ₹100,000 with an annual inflation rate of 6% over 5 years.",
+            "steps": [
+                "Step 1: Identify the current cost (₹100,000), annual inflation rate (6%), and time period (5 years).",
+                "Step 2: Use the formula for cost increase: Increase = C * ((1 + (I / 100)) ** T - 1).",
+                "Step 3: Substitute the values: Increase = 100000 * ((1 + (6 / 100)) ** 5 - 1).",
+                "Step 4: Calculate the cost increase."
+            ],
+            "calculation": {
+                "C": 100000,
+                "I": 6,
+                "T": 5,
+                "formula": "100000 * ((1 + (6 / 100)) ** 5 - 1)",
+                "result": 33822.56,
+                "explanation": "The cost increase for an item priced at ₹100,000 with an annual inflation rate of 6% over 5 years is ₹33,822.56."
+            }
+        },
+        {
+            "title": "Story-Based Explanation: Ramesh's Expense Forecast",
+            "description": "Ramesh plans to purchase equipment priced at ₹100,000 today. He expects inflation to rise by 6% annually over the next 5 years. Here's how the cost changes.",
+            "steps": [
+                "Ramesh notes the current cost of the equipment as ₹100,000 and assumes a consistent annual inflation rate of 6%.",
+                "He calculates the increase in cost using the formula: Increase = C * ((1 + (I / 100)) ** T - 1).",
+                "After 5 years, the price of the equipment rises to ₹133,822.56, with a cost increase of ₹33,822.56.",
+                "This helps Ramesh plan his budget to accommodate future expenses."
+            ],
+            "calculation": {
+                "C": 100000,
+                "I": 6,
+                "T": 5,
+                "formula": "100000 * ((1 + (6 / 100)) ** 5 - 1)",
+                "result": 33822.56,
+                "explanation": "The total cost of the equipment after 5 years is ₹133,822.56, including ₹33,822.56 as the cost increase due to inflation."
+            }
+        }
+    ]
+}

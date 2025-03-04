@@ -1,0 +1,101 @@
+{
+    "name": "Simple Interest Calculator",
+    "description": "The Simple Interest Calculator helps you calculate the interest earned or paid on a loan or investment over a specified period. Simple interest is calculated based on the principal amount, rate of interest, and time period. This calculator provides real-time calculations and supports chart visualizations to help you understand the impact of your financial decisions.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Principal Amount ($)",
+            "type": "number",
+            "default": 1000,
+            "long_definition": "The Principal Amount refers to the initial sum of money invested, borrowed, or deposited. It serves as the base value for calculating simple interest."
+        },
+        {
+            "name": "Rate",
+            "label": "Rate of Interest (%)",
+            "type": "number",
+            "default": 5,
+            "long_definition": "The Rate of Interest is the annual percentage rate at which interest is calculated on the principal amount."
+        },
+        {
+            "name": "Time",
+            "label": "Time (Years)",
+            "type": "number",
+            "default": 2,
+            "long_definition": "The Time variable represents the duration, in years, over which the principal accrues interest."
+        }
+    ],
+    "results" : ["formula" , "total_interest"  , "total_amount", "Principal"],
+    "selected_keys" : ["Principal" , "total_interest" ,  "total_amount"],
+    "chart_keys" : ["total_interest", "Principal"],
+    "formula": "(P * R * T) / 100",
+    "total_interest": "(P * R * T) / 100 + P - P",
+    "total_amount" : "(P * R * T) / 100 + P",
+    "Principal" : "P",
+    "not_year_colume" : false,
+    "general_formula" : true,
+    "table_headings": [
+        "Principal",
+        "Year",
+        "Simple Interest",
+        "Total Amount"
+    ],
+    "charts": {
+        "pie": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        },
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": ["Principal", "Interest"]
+        },
+        "bar": {
+            "enabled": true,
+            "labels": ["Principal", "Interest"],
+            "xLabel" : "Time",
+            "yLabel" : "Total Amount"
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["Principal", "Interest"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: Simple Interest Calculation",
+            "description": "Calculate the simple interest for a principal amount of ₹1000, an annual interest rate of 5%, over 2 years.",
+            "steps": [
+                "Step 1: Identify the principal amount (P), rate of interest (R), and time period (T).",
+                "Step 2: Use the formula for simple interest: SI = (P * R * T) / 100.",
+                "Step 3: Substitute the values into the formula.",
+                "Step 4: Calculate the result."
+            ],
+            "calculation": {
+                "P": 1000,
+                "R": 5,
+                "T": 2,
+                "formula": "(1000 * 5 * 2) / 100",
+                "result": 100,
+                "explanation": "The simple interest is $100, making the total amount ₹1100 after 2 years."
+            }
+        },
+        {
+            "title": "Story-Based Explanation: Straightforward Savings",
+            "description": "Imagine a student, Alex, saves ₹1000 in a simple savings account offering a 5% annual interest rate for 2 years. Here's how simple interest works in this case.",
+            "steps": [
+                "Alex deposits ₹1000 into a savings account at the beginning of the year.",
+                "The bank applies a 5% interest rate per year on the principal amount. For the first year, the interest is calculated as ₹1000 × 5% = ₹50.",
+                "After the first year, Alex earns ₹50 interest. This amount remains unchanged for the second year because simple interest does not compound.",
+                "At the end of 2 years, Alex earns ₹50 interest for each year, totaling ₹100. The final balance is ₹1100."
+            ],
+            "calculation": {
+                "P": 1000,
+                "R": 5,
+                "T": 2,
+                "formula": "(1000 * 5 * 2) / 100",
+                "result": 100,
+                "explanation": "After 2 years, Alex's simple interest totals ₹100, so the account balance grows to ₹1100."
+            }
+        }
+    ]
+}

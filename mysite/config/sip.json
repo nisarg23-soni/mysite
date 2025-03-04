@@ -1,0 +1,95 @@
+{
+    "name": "SIP (Systematic Investment Plan) Calculator",
+    "description": "The SIP Calculator helps you estimate the maturity amount for a Systematic Investment Plan (SIP). SIP is an investment strategy where you invest a fixed amount monthly into mutual funds or similar financial instruments. The calculator uses the power of compounding to show how your investment grows over time based on the monthly contribution, annual rate of return, and investment tenure.",
+    "variables": [
+        {
+            "name": "Principal",
+            "label": "Monthly Investment (₹)",
+            "type": "number",
+            "default": 1000,
+            "long_definition": "The Monthly Investment is the fixed amount deposited every month into the SIP. This consistent investment accumulates over time to generate returns."
+        },
+        {
+            "name": "Rate",
+            "label": "Annual Return Rate (%)",
+            "type": "number",
+            "default": 12,
+            "long_definition": "The Annual Return Rate refers to the expected percentage growth of the investment annually. It is used to calculate monthly compounding returns."
+        },
+        {
+            "name": "Time",
+            "label": "Investment Tenure (Months)",
+            "type": "number",
+            "default": 60,
+            "long_definition": "The Investment Tenure is the total duration (in months) for which the monthly investments are made. The maturity amount depends on this duration."
+        }
+    ],
+    "results" : ["total_amount" , "total_interest", "Total_principal"],
+    "selected_keys" : ["Total_principal" , "total_amount" ,  "total_interest"],
+    "chart_keys" : ["total_interest", "Total_principal"],
+    "formula": "P * (((1 + (R / 100) / 12) ** T - 1) / ((R / 100) / 12)) * (1 + (R / 100) / 12)",
+    "total_amount": "P * (((1 + (R / 100) / 12) ** T - 1) / ((R / 100) / 12)) * (1 + (R / 100) / 12)",
+    "total_interest" : "(P * (((1 + (R / 100) / 12) ** T - 1) / ((R / 100) / 12)) * (1 + (R / 100) / 12)) - (P * T)",
+    "Principal" : "P",
+    "Total_principal" : "P * T",
+    "not_year_colume" : false,
+    "general_formula" : true,
+    "table_headings": [
+        "Invested amount",
+        "Month",
+        "Total Amount",
+        "Interest Gained"
+    ],
+    "charts": {
+        "doughnut": {
+            "default": true,
+            "enabled": true,
+            "labels": ["Principal", "Returns"]
+        },
+        "line": {
+            "enabled": false,
+            "labels": ["Principal" , "Returns"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Principal", "Returns"]
+        }
+    },
+    "examples": [
+        {
+            "title": "Example: SIP Calculation for ₹1000 Monthly Investment",
+            "description": "Let's calculate the maturity amount for a monthly investment of ₹1000, at an annual return rate of 12%, for a tenure of 5 years (60 months).",
+            "steps": [
+                "Step 1: Identify the monthly investment (₹1000), annual return rate (12%), and tenure (60 months).",
+                "Step 2: Use the SIP formula: M = P * (((1 + (R / 100) / 12) ** N - 1) / ((R / 100) / 12)) * (1 + (R / 100) / 12).",
+                "Step 3: Substitute the values into the formula.",
+                "Step 4: Calculate the maturity amount."
+            ],
+            "calculation": {
+                "P": 1000,
+                "R": 12,
+                "N": 60,
+                "formula": "1000 * (((1 + (12 / 100) / 12) ** 60 - 1) / ((12 / 100) / 12)) * (1 + (12 / 100) / 12)",
+                "result": 81111.63,
+                "explanation": "The maturity amount after 60 months for a monthly investment of ₹1000 at an annual return rate of 12% is ₹81,111.63, which includes both the principal and the interest earned."
+            }
+        },
+        {
+            "title": "Story-Based Explanation: Rohan's Path to Wealth",
+            "description": "Rohan, a young professional, decides to invest ₹1000 monthly in a mutual fund through SIP to build his future corpus. With an annual return rate of 12% and an investment tenure of 5 years, here's how his investment grows.",
+            "steps": [
+                "Rohan begins investing ₹1000 every month. Each installment earns returns based on the annual rate, compounded monthly.",
+                "Over the 5 years, his consistent investments and the power of compounding work together to grow his wealth.",
+                "By the end of the tenure, Rohan's small monthly contributions have grown into a significant corpus."
+            ],
+            "calculation": {
+                "P": 1000,
+                "R": 12,
+                "N": 60,
+                "formula": "1000 * (((1 + (12 / 100) / 12) ** 60 - 1) / ((12 / 100) / 12)) * (1 + (12 / 100) / 12)",
+                "result": 81111.63,
+                "explanation": "Rohan's total investment grows to ₹81,111.63 over 5 years, including ₹21,111.63 as interest earned."
+            }
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "name": "Net Salary Calculator",
+    "description": "The Net Salary Calculator computes the monthly take-home salary after deductions, including professional tax, provident fund contributions (employer and employee), and additional deductions. It also considers the bonus percentage included in the CTC.",
+    "variables": [
+        {
+            "name": "Ctc",
+            "label": "Cost to Company (CTC) (₹)",
+            "type": "number",
+            "default": 500000,
+            "long_definition": "CTC (Cost to Company) is the total annual salary package offered by the employer, including all benefits, taxes, and bonuses."
+        },
+        {
+            "name": "BonusPercentage",
+            "label": "Bonus Percentage (%)",
+            "type": "number",
+            "default": 10,
+            "long_definition": "The percentage of the CTC that is allocated to bonuses, which are often disbursed annually or quarterly."
+        },
+        {
+            "name": "MonthlyProfessionalTax",
+            "label": "Monthly Professional Tax (₹)",
+            "type": "number",
+            "default": 200,
+            "long_definition": "The professional tax is a state-imposed tax on salaried employees, deducted from the monthly salary."
+        },
+        {
+            "name": "OwnerPF",
+            "label": "Employer Provident Fund Contribution (₹)",
+            "type": "number",
+            "default": 1800,
+            "long_definition": "The employer's contribution to the Provident Fund, a mandatory retirement savings scheme."
+        },
+        {
+            "name": "EmployeePF",
+            "label": "Employee Provident Fund Contribution (₹)",
+            "type": "number",
+            "default": 1800,
+            "long_definition": "The employee's contribution to the Provident Fund, deducted from the monthly salary."
+        },
+        {
+            "name": "FirstDeductions1",
+            "label": "Additional Monthly Deductions 1 (₹)",
+            "type": "number",
+            "default": 0,
+            "long_definition": "Optional additional deductions from the monthly salary, such as loan EMI or other commitments."
+        },
+        {
+            "name": "SecondDeductions2",
+            "label": "Additional Monthly Deductions 2 (₹)",
+            "type": "number",
+            "default": 0,
+            "long_definition": "Optional additional deductions from the monthly salary, such as insurance premiums or other commitments."
+        }
+    ],
+    "formula": "((C - (C * B / 100)) / 12) - (M + O + E + F + S)",
+    "results" : ["formula" , "total_monthly_deductions" , "total_annual_deductions" , "take_home_annual_salary"],
+    "selected_keys" : ["formula" , "total_monthly_deductions" ,  "total_annual_deductions", "take_home_annual_salary"],
+    "chart_keys" : ["take_home_annual_salary", "total_annual_deductions"],
+    "formula": "((C - (C * B / 100)) / 12) - (M + O + E + F + S)",
+    "total_monthly_deductions" :"(C /12 - (((C - (C * B / 100)) / 12) - (M + O + E + F + S)))",
+    "take_home_annual_salary" : "(((C - (C * B / 100)) / 12) - (M + O + E + F + S)) * 12",
+    "total_annual_deductions" : "C - ((((C - (C * B / 100)) / 12) - (M + O + E + F + S)) * 12)",
+    "not_year_colume" : true,
+    "general_formula" : true,
+    "charts": {
+        "doughnut": {
+            "enabled": true,
+            "default": true,
+            "labels": ["Net Salary", "Deductions"]
+        },
+        "bar": {
+            "enabled": false,
+            "labels": ["Monthly Net Salary", "Deductions Breakdown"]
+        }
+    },
+    "table_headings": [
+        "Take Home Monthly Salary",
+        "Take Home Annual Salary",
+        "Total Annual Deductions",
+        "Total Monthly Deductions"
+    ],
+    "examples": [
+        {
+            "title": "Example: Calculate Net Salary",
+            "description": "Compute the monthly net salary for an employee with a ₹10,00,000 CTC, a 20% bonus, and typical deductions.",
+            "steps": [
+                "Step 1: Determine the components of the CTC, including the bonus (₹2,00,000).",
+                "Step 2: Subtract the bonus from the CTC to get the taxable base (₹8,00,000).",
+                "Step 3: Divide the taxable base by 12 to get the monthly salary.",
+                "Step 4: Deduct the professional tax, PF contributions, and any additional deductions to compute the monthly net salary."
+            ],
+            "calculation": {
+                "CTC": 1000000,
+                "BonusPercentage": 20,
+                "MonthlyProfessionalTax": 200,
+                "EmployerPF": 1800,
+                "EmployeePF": 1800,
+                "AdditionalDeductions1": 0,
+                "AdditionalDeductions2": 0,
+                "formula": "((1000000 - (1000000 * 20 / 100)) / 12) - (200 + 1800 + 1800)",
+                "result": 59733.33,
+                "explanation": "The monthly take-home salary after deductions is ₹59,733.33."
+            }
+        },
+        {
+            "title": "Story-Based Example: Ravi's Salary Breakdown",
+            "description": "Ravi earns a ₹5,00,000 CTC with a 10% bonus. After considering taxes, provident fund contributions, and insurance premiums, he wants to calculate his monthly net salary.",
+            "steps": [
+                "Ravi calculates his annual bonus (₹50,000) and subtracts it from the CTC to get the taxable base (₹4,50,000).",
+                "He computes his monthly base salary by dividing ₹4,50,000 by 12.",
+                "After deducting ₹200 (professional tax), ₹1,800 (employer PF), ₹1,800 (employee PF), and ₹1,000 (insurance premiums), he determines his take-home salary.",
+                "Ravi's monthly net salary is ₹34,416.67, which helps him plan his budget."
+            ],
+            "calculation": {
+                "CTC": 500000,
+                "BonusPercentage": 10,
+                "MonthlyProfessionalTax": 200,
+                "EmployerPF": 1800,
+                "EmployeePF": 1800,
+                "AdditionalDeductions1": 1000,
+                "AdditionalDeductions2": 0,
+                "formula": "((500000 - (500000 * 10 / 100)) / 12) - (200 + 1800 + 1800 + 1000)",
+                "result": 34416.67,
+                "explanation": "Ravi's monthly net salary after all deductions is ₹34,416.67."
+            }
+        }
+    ]
+}
